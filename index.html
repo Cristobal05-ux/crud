@@ -1,0 +1,584 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gestión de registros</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Iconos -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+
+                <span>CRUD<span class="logo-highlight">App</span></span>
+            </div>
+
+            <nav class="menu">
+
+                <a href="#" class="menu-item active">
+                    <i class="fa-solid fa-table-columns"></i>
+                    <span>Registros</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Configuración</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user">
+
+                    <div class="avatar">
+                        CS
+                    </div>
+
+                    <div>
+                        <strong>Administrador</strong>
+                        <small>admin@crudapp.com</small>
+                    </div>
+
+                </div>
+            </div>
+
+        </aside>
+
+
+        <!-- ================= CONTENIDO ================= -->
+
+        <main class="main">
+
+            <!-- HEADER -->
+
+            <header class="header">
+
+                <div>
+                    <h1>Registros</h1>
+                    <p>Administra los registros de tu sistema.</p>
+                </div>
+
+                <button class="btn-primary" id="btnNuevo">
+                    <i class="fa-solid fa-plus"></i>
+                    Nuevo registro
+                </button>
+
+            </header>
+
+
+            <!-- ================= ESTADÍSTICAS ================= -->
+
+            <section class="stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+
+                    <div>
+                        <span>Total registros</span>
+                        <strong id="totalRegistros">6</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+
+                    <div>
+                        <span>Activos</span>
+                        <strong>5</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+
+                    <div>
+                        <span>Último registro</span>
+                        <strong>Hoy</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= TABLA ================= -->
+
+            <section class="content-card">
+
+                <div class="table-header">
+
+                    <div>
+                        <h2>Lista de registros</h2>
+                        <p>Consulta, modifica o elimina información.</p>
+                    </div>
+
+                    <div class="table-actions">
+
+                        <div class="search">
+
+                            <i class="fa-solid fa-magnifying-glass"></i>
+
+                            <input
+                                type="text"
+                                id="searchInput"
+                                placeholder="Buscar..."
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Teléfono</th>
+                                <th>Estado</th>
+                                <th>Fecha</th>
+                                <th>Acciones</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="tablaRegistros">
+
+                            <tr>
+                                <td>#001</td>
+
+                                <td>
+                                    <div class="person">
+                                        <div class="person-avatar">JC</div>
+
+                                        <div>
+                                            <strong>Juan Carlos</strong>
+                                            <small>Cliente</small>
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>juan@gmail.com</td>
+
+                                <td>443 123 4567</td>
+
+                                <td>
+                                    <span class="status active">
+                                        Activo
+                                    </span>
+                                </td>
+
+                                <td>05 Oct 2026</td>
+
+                                <td>
+
+                                    <div class="actions">
+
+                                        <button
+                                            class="action view"
+                                            title="Ver">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </button>
+
+                                        <button
+                                            class="action edit"
+                                            title="Editar">
+                                            <i class="fa-solid fa-pen"></i>
+                                        </button>
+
+                                        <button
+                                            class="action delete"
+                                            title="Eliminar">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>#002</td>
+
+                                <td>
+                                    <div class="person">
+
+                                        <div class="person-avatar">
+                                            MA
+                                        </div>
+
+                                        <div>
+                                            <strong>María López</strong>
+                                            <small>Cliente</small>
+                                        </div>
+
+                                    </div>
+                                </td>
+
+                                <td>maria@gmail.com</td>
+
+                                <td>443 987 1234</td>
+
+                                <td>
+                                    <span class="status active">
+                                        Activo
+                                    </span>
+                                </td>
+
+                                <td>04 Oct 2026</td>
+
+                                <td>
+
+                                    <div class="actions">
+
+                                        <button class="action view">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </button>
+
+                                        <button class="action edit">
+                                            <i class="fa-solid fa-pen"></i>
+                                        </button>
+
+                                        <button class="action delete">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>#003</td>
+
+                                <td>
+                                    <div class="person">
+
+                                        <div class="person-avatar">
+                                            RP
+                                        </div>
+
+                                        <div>
+                                            <strong>Roberto Pérez</strong>
+                                            <small>Administrador</small>
+                                        </div>
+
+                                    </div>
+                                </td>
+
+                                <td>roberto@gmail.com</td>
+
+                                <td>443 555 9988</td>
+
+                                <td>
+                                    <span class="status inactive">
+                                        Inactivo
+                                    </span>
+                                </td>
+
+                                <td>03 Oct 2026</td>
+
+                                <td>
+
+                                    <div class="actions">
+
+                                        <button class="action view">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </button>
+
+                                        <button class="action edit">
+                                            <i class="fa-solid fa-pen"></i>
+                                        </button>
+
+                                        <button class="action delete">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- ================= MODAL ================= -->
+
+    <div class="modal-overlay" id="modal">
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <div>
+                    <h2 id="modalTitle">
+                        Nuevo registro
+                    </h2>
+
+                    <p>
+                        Ingresa la información del registro.
+                    </p>
+                </div>
+
+                <button class="close" id="btnCerrar">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <form id="registroForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="nombre">
+                            Nombre
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nombre"
+                            placeholder="Ej. Juan Carlos"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="correo">
+                            Correo electrónico
+                        </label>
+
+                        <input
+                            type="email"
+                            id="correo"
+                            placeholder="correo@ejemplo.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="telefono">
+                            Teléfono
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="telefono"
+                            placeholder="443 123 4567"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="estado">
+                            Estado
+                        </label>
+
+                        <select id="estado">
+
+                            <option value="Activo">
+                                Activo
+                            </option>
+
+                            <option value="Inactivo">
+                                Inactivo
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="modal-footer">
+
+                    <button
+                        type="button"
+                        class="btn-secondary"
+                        id="btnCancelar">
+                        Cancelar
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn-primary">
+                        <i class="fa-solid fa-check"></i>
+                        Guardar registro
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const modal = document.getElementById("modal");
+        const btnNuevo = document.getElementById("btnNuevo");
+        const btnCerrar = document.getElementById("btnCerrar");
+        const btnCancelar = document.getElementById("btnCancelar");
+
+        const form = document.getElementById("registroForm");
+
+
+        // Abrir modal
+
+        btnNuevo.addEventListener("click", () => {
+
+            document.getElementById("modalTitle").textContent =
+                "Nuevo registro";
+
+            form.reset();
+
+            modal.classList.add("show");
+
+        });
+
+
+        // Cerrar modal
+
+        function cerrarModal() {
+
+            modal.classList.remove("show");
+
+        }
+
+
+        btnCerrar.addEventListener("click", cerrarModal);
+
+        btnCancelar.addEventListener("click", cerrarModal);
+
+
+        // Guardar
+
+        form.addEventListener("submit", (e) => {
+
+            e.preventDefault();
+
+            alert("Registro guardado correctamente.");
+
+            cerrarModal();
+
+        });
+
+
+        // Cerrar haciendo click fuera
+
+        modal.addEventListener("click", (e) => {
+
+            if (e.target === modal) {
+
+                cerrarModal();
+
+            }
+
+        });
+
+
+        // Buscador
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+        searchInput.addEventListener("input", () => {
+
+            const search =
+                searchInput.value.toLowerCase();
+
+            const rows =
+                document.querySelectorAll(
+                    "#tablaRegistros tr"
+                );
+
+            rows.forEach(row => {
+
+                const text =
+                    row.textContent.toLowerCase();
+
+                row.style.display =
+                    text.includes(search)
+                        ? ""
+                        : "none";
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
